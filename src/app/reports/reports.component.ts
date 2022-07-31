@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Report } from '../Report';
+import { Report } from './report';
 import { Subscription } from 'rxjs';
-import { ReportService } from '../Report.service';
+import { ReportService } from './report.service';
 
 @Component({
   selector: 'app-reports',
