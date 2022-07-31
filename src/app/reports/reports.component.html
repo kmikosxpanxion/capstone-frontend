@@ -3,13 +3,12 @@
 <br>
 <button class="btn btn-success" type="submit" routerLink="/reports/add-report" routerLinkActive="active">ADD</button>
 <button class="btn btn-warning" type="submit" routerLink="/deactivate-report" routerLinkActive="active">DEACTIVATE</button>
-<div class="form-group pull-right">
-  <input type="text" class="search form-control" placeholder="Report Name">
-</div>
 <br>
 <div class="form-group pull-right">
-  <input type="text" class="search form-control" placeholder="Title Name">
-</div>
+  <input type="text" class="search form-control" [(ngModel)]="reportSearchInput" placeholder="Report Name"> 
+  <button type="button" class="btn_search input_button" style="border:none;height:30px" 
+  (click)="onClickSearchByReportName(reportSearchInput)">Search</button>
+<br>
 <span class="counter pull-right"></span>
 <div class="table-responsive">
 <table class='table' *ngIf="reports.length">

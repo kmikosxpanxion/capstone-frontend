@@ -12,15 +12,21 @@ export class ReportsComponent implements OnInit, OnDestroy {
 
   sub!: Subscription;
   reports: Report[] = [];
+  reportSearchInput!: string;
 
   constructor(private reportService: ReportService) { }
 
   ngOnInit(): void {
-    this.sub = this.reportService.getReports().subscribe({
+   }
+
+  onClickSearchByReportName(text: string){
+    this.reportSearchInput = text;
+    this.sub = this.reportService.getReportsByReportName(this.reportSearchInput).subscribe({
       next: reports => {
         this.reports = reports;
       },
-  })}
+  })
+  }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();

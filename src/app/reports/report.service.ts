@@ -16,6 +16,10 @@ export class ReportService {
     return this.httpClient.get<Report[]>(`${this.baseURL}`);
   }
 
+  getReportsByReportName(reportName: string): Observable<Report[]>{
+    return this.httpClient.get<Report[]>(`${this.baseURL}/results/${reportName}`);
+  }
+
   createEmployee(report: Report): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`, report);
   }
