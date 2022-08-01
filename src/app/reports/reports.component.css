@@ -19,3 +19,7 @@ body{
 .col-width{
   width:12.5%;
 }
+
+.button{
+  float:right;
+}

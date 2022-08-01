@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Report } from './report';
 import { Subscription } from 'rxjs';
 import { ReportService } from './report.service';
+import { ReportSearch } from './report-search';
 
 @Component({
   selector: 'app-reports',
@@ -12,6 +13,7 @@ export class ReportsComponent implements OnInit, OnDestroy {
 
   sub!: Subscription;
   reports: Report[] = [];
+  reportSearches: ReportSearch[] = [];
   reportSearchInput!: string;
 
   constructor(private reportService: ReportService) { }
@@ -22,11 +24,15 @@ export class ReportsComponent implements OnInit, OnDestroy {
   onClickSearchByReportName(text: string){
     this.reportSearchInput = text;
     this.sub = this.reportService.getReportsByReportName(this.reportSearchInput).subscribe({
-      next: reports => {
-        this.reports = reports;
+      next: reportSearches => {
+        this.reportSearches = reportSearches;
       },
   })
   }
+
+  // onClickDeactivateReport(reportId: number, report: Report){
+  //   this.sub = this.reportService.deactivateReport()
+  // }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();

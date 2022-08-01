@@ -1,4 +1,4 @@
-<select id="choice">
+<!-- <select id="choice">
     <option value="all">Report Name</option>
     <option value="serviceOne">New Contribution Report for 0297 District</option>
 
@@ -16,9 +16,15 @@
     <option value="all">AS400</option>
     <option value="serviceOne">Yes</option>
     <option value="serviceOne">No</option>
-</select>
+</select> -->
 
-<table id="table">
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" [(ngModel)]="reportSearchInput" placeholder="Report Name"> 
+    <button type="button" class="btn_search input_button" style="border:none;height:30px" 
+    (click)="onClickSearchByReportName(reportSearchInput)">Search</button>
+  </div>
+<div class="table-responsive">
+<table id="table" *ngIf="reportConfigSearches.length">
     <thead>
         <tr>
             <th style="width:2%;">#</th>
@@ -29,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="all serviceEleven">
+        <tr class="all serviceEleven" *ngFor="let reportConfigSearch of reportConfigSearches">
             <td>
                 <div class="checkbox">
                     <span class="choice-details">
@@ -39,12 +45,14 @@
                     </span>
                 </div>
             </td>
-            <td>New Contribution Report for 0297 District</td>
-            <td>ANY</td>
-            <td>Category</td>
-            <td>Finance</td>
+            <td>{{reportConfigSearch.reportName}}</td>
+            <td>{{reportConfigSearch.as400Name}}</td>
+            <td>{{reportConfigSearch.dimTypeName}}</td>
+            <td>{{reportConfigSearch.dimValue}}</td>
         </tr>
 
 
     </tbody>
 </table>
+</div>
+<router-outlet></router-outlet>

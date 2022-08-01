@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Report } from './report';
+import { ReportSearch } from './report-search';
 
 @Injectable({
   providedIn: 'root'
@@ -12,27 +13,27 @@ export class ReportService {
 
   constructor(private httpClient: HttpClient) { }
   
-  getReports(): Observable<Report[]>{
-    return this.httpClient.get<Report[]>(`${this.baseURL}`);
+  // getReports(): Observable<Report[]>{
+  //   return this.httpClient.get<Report[]>(`${this.baseURL}`);
+  // }
+
+  getReportsByReportName(reportName: string): Observable<ReportSearch[]>{
+    return this.httpClient.get<ReportSearch[]>(`${this.baseURL}/as400name/results/${reportName}`);
   }
 
-  getReportsByReportName(reportName: string): Observable<Report[]>{
-    return this.httpClient.get<Report[]>(`${this.baseURL}/as400name/results/${reportName}`);
-  }
+  // createReport(report: Report): Observable<Object>{
+  //   return this.httpClient.post(`${this.baseURL}`, report);
+  // }
 
-  createEmployee(report: Report): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}`, report);
-  }
+  // getReportById(id: number): Observable<Report>{
+  //   return this.httpClient.get<Report>(`${this.baseURL}/${id}`);
+  // }
 
-  getEmployeeById(id: number): Observable<Report>{
-    return this.httpClient.get<Report>(`${this.baseURL}/${id}`);
-  }
+  // updateReport(id: number, report: Report): Observable<Object>{
+  //   return this.httpClient.put(`${this.baseURL}/${id}`, report);
+  // }
 
-  updateEmployee(id: number, report: Report): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`, report);
-  }
-
-  deleteEmployee(id: number): Observable<Object>{
-    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  deactivateReport(id: number, report: Report): Observable<Report>{
+    return this.httpClient.put<Report>(`${this.baseURL}/deactivate/${id}`, report);
   }
 }

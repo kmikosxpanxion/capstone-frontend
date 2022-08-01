@@ -1,17 +1,20 @@
 
 <h1>REPORTS</h1>
 <br>
+<div class="button">
 <button class="btn btn-success" type="submit" routerLink="/reports/add-report" routerLinkActive="active">ADD</button>
 <button class="btn btn-warning" type="submit" routerLink="/deactivate-report" routerLinkActive="active">DEACTIVATE</button>
+</div>
 <br>
 <div class="form-group pull-right">
   <input type="text" class="search form-control" [(ngModel)]="reportSearchInput" placeholder="Report Name"> 
   <button type="button" class="btn_search input_button" style="border:none;height:30px" 
   (click)="onClickSearchByReportName(reportSearchInput)">Search</button>
+</div>
 <br>
 <span class="counter pull-right"></span>
 <div class="table-responsive">
-<table class='table' *ngIf="reports.length">
+<table class='table' *ngIf="reportSearches.length">
   <thead>
     <tr>
       <th style="width:2%;">#</th>
@@ -22,21 +25,23 @@
       <th class="col-width">Skip Pages</th>
       <th class="col-width">Creation Date</th>
       <th class="col-width">Report Definition</th>
+      <!-- <th class="col-width">Deactivate?</th> -->
     </tr>
     <!-- <tr class="warning no-result">
       <td colspan="4"><i class="fa fa-warning"></i> No result</td>
     </tr> -->
   </thead>
   <tbody>
-    <tr *ngFor='let report of reports'>
+    <tr *ngFor='let reportSearch of reportSearches'>
       <td></td>
-      <td>{{report.reportName}}</td>
-      <td>{{report.as400Name}}</td>
-      <td>{{report.status}}</td>
-      <td>{{report.nonSpoolFile}}</td>
-      <td>{{report.skipPages}}</td>
-      <td>{{report.creationDate}}</td>
+      <td>{{reportSearch.reportName}}</td>
+      <td>{{reportSearch.as400Name}}</td>
+      <td>{{reportSearch.status}}</td>
+      <td>{{reportSearch.nonSpoolFile}}</td>
+      <td>{{reportSearch.skipPages}}</td>
+      <td>{{reportSearch.creationDate}}</td>
       <td></td>
+      <!-- <td><button type="button" (click)="onClickDeactivateReport(report.)">Deactivate</button></td> -->
     </tr>
   </tbody>
 </table>
