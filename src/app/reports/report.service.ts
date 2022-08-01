@@ -17,7 +17,7 @@ export class ReportService {
   }
 
   getReportsByReportName(reportName: string): Observable<Report[]>{
-    return this.httpClient.get<Report[]>(`${this.baseURL}/results/${reportName}`);
+    return this.httpClient.get<Report[]>(`${this.baseURL}/as400name/results/${reportName}`);
   }
 
   createEmployee(report: Report): Observable<Object>{

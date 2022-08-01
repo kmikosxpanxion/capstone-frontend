@@ -1,7 +1,14 @@
 export class Report {
-    id!: number;
-    name!: string;
-    // historyMaxDays: number;
+    reportName!: string;
+    as400Name!: string;
+    status!: string;
+    nonSpoolFile!: number;
+    skipPages!: number;
+    creationDate!: string;
+
+    // id!: number;
+    // name!: string;
+    // historyMaxDays!: number;
     // nonSpoolFile: number;
     // description: string;
     // expirationDays: number;
@@ -10,7 +17,7 @@ export class Report {
     // allowPrint: number;
     // addedBy: string;
     // modifiedBy: string;
-    // as400Id: number;
+    // as400Id!: number;
     // status: string;
     // deletedBy: string;
     // multiReports: number;
