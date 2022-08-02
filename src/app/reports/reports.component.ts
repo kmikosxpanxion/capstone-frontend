@@ -30,8 +30,8 @@ export class ReportsComponent implements OnInit, OnDestroy {
   })
   }
 
-  // onClickDeactivateReport(reportId: number, report: Report){
-  //   this.sub = this.reportService.deactivateReport()
+  // onClickDeactivateReport(reportId: number){
+  //   this.reportService.deactivateReport(reportId);
   // }
 
   ngOnDestroy(): void {

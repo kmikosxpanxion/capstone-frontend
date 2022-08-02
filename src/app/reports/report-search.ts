@@ -1,4 +1,5 @@
 export class ReportSearch{
+    id!: number;
     reportName!: string;
     as400Name!: string;
     status!: string;

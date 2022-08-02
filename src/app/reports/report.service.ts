@@ -33,7 +33,7 @@ export class ReportService {
   //   return this.httpClient.put(`${this.baseURL}/${id}`, report);
   // }
 
-  deactivateReport(id: number, report: Report): Observable<Report>{
-    return this.httpClient.put<Report>(`${this.baseURL}/deactivate/${id}`, report);
-  }
+  // deactivateReport(id: number, report: Report): Observable<Report>{
+  //   return this.httpClient.put<Report>(`${this.baseURL}/deactivate/${id}`, report);
+  // }
 }

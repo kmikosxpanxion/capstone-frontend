@@ -9,19 +9,17 @@ import { AppComponent } from './app.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
- 
-   
- 
+    routingComponents
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
    { provide: HTTP_INTERCEPTORS,

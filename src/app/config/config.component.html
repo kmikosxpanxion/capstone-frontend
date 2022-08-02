@@ -27,7 +27,7 @@
 <table id="table" *ngIf="reportConfigSearches.length">
     <thead>
         <tr>
-            <th style="width:2%;">#</th>
+            <!-- <th style="width:2%;">#</th> -->
             <th class="col-width">Report Name</th>
             <th class="col-width">AS400</th>
             <th class="col-width">Dim Type</th>
@@ -36,7 +36,7 @@
     </thead>
     <tbody>
         <tr class="all serviceEleven" *ngFor="let reportConfigSearch of reportConfigSearches">
-            <td>
+            <!-- <td>
                 <div class="checkbox">
                     <span class="choice-details">
                         <label class="checkbox-inline">
@@ -44,7 +44,7 @@
                         </label>
                     </span>
                 </div>
-            </td>
+            </td> -->
             <td>{{reportConfigSearch.reportName}}</td>
             <td>{{reportConfigSearch.as400Name}}</td>
             <td>{{reportConfigSearch.dimTypeName}}</td>

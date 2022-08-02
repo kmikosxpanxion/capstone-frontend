@@ -1,1 +1,30 @@
-<p>delete-live-reports works!</p>
+<div class="form-group pull-right">
+    <input type="text" class="search form-control" [(ngModel)]="reportSearchInput" placeholder="Report Name"> 
+    <button type="button" class="btn_search input_button" style="border:none;height:30px" 
+    (click)="onClickSearchByReportName(reportSearchInput)">Search</button>
+  </div>
+<div class="table-responsive">
+<table id="table" *ngIf="liveReports.length">
+    <thead>
+        <tr>
+            <th class="col-width">Report Name</th>
+            <th class="col-width">Run Date</th>
+            <th class="col-width">Run Time</th>
+            <th class="col-width">Loaded Timestamp</th>
+            <th class="col-width">Delete Live Report?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let liveReport of liveReports">
+            <td>{{liveReport.description}}</td>
+            <td>{{liveReport.cDate}}</td>
+            <td>{{liveReport.rTime}}</td>
+            <td>{{liveReport.pDate}}</td>
+            <!-- <td><button type="button" (click)="onClickDeleteReport(liveReport.id)">Delete</button></td> -->
+        </tr>
+
+
+    </tbody>
+</table>
+</div>
+<router-outlet></router-outlet>
